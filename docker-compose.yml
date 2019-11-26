@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server
+    volumes:
+      - dbdata:/var/opt/mssql
+  
+  identity-server:
+    build:
+      context: ../../
+      dockerfile: templates/service/host/IdentityServerHost/Dockerfile
+    depends_on:
+      - sqlserver      
+  
+  my-project:
+    build:
+      context: ../../
+      dockerfile: templates/service/host/Abp.SettingManagement.Mvc.UI.Host/Dockerfile
+    depends_on:
+      - sqlserver
+      - identity-server
+
+volumes:
+  dbdata:

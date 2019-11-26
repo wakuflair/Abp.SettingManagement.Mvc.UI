@@ -1,0 +1,24 @@
+﻿.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+    margin-left: 0;
+}
+
+.checkbox .form-check-label {
+    margin-left: 1em;
+}
+
+.checkbox,
+.card-body input {
+    margin-bottom: 20px;
+}
+
+.card-body > label {
+    font-weight: bold;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+

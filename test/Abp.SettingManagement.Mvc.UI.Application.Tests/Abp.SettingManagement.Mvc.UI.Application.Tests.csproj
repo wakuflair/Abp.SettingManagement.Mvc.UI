@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>Abp.SettingManagement.Mvc.UI</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Abp.SettingManagement.Mvc.UI.Application\Abp.SettingManagement.Mvc.UI.Application.csproj" />
+    <ProjectReference Include="..\Abp.SettingManagement.Mvc.UI.Domain.Tests\Abp.SettingManagement.Mvc.UI.Domain.Tests.csproj" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.3.0" />
+  </ItemGroup>
+
+</Project>

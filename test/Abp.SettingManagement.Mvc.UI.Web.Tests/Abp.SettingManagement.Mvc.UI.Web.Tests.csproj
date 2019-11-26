@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.3.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.3.0" />
+    <PackageReference Include="Volo.Abp.AspNetCore.TestBase" Version="1.0.2" />
+    <PackageReference Include="Volo.Abp.Emailing" Version="1.0.2" />
+    <PackageReference Include="Volo.Abp.Settings" Version="1.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="xunit.runner.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\host\Abp.SettingManagement.Mvc.UI.Web.Unified\Abp.SettingManagement.Mvc.UI.Web.Unified.csproj" />
+    <ProjectReference Include="..\Abp.SettingManagement.Mvc.UI.Application.Tests\Abp.SettingManagement.Mvc.UI.Application.Tests.csproj" />
+  </ItemGroup>
+
+</Project>

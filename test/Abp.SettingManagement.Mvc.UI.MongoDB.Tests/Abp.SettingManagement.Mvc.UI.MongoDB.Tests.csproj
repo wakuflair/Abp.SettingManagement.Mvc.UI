@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <RootNamespace>Abp.SettingManagement.Mvc.UI</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.3.0" />
+    <PackageReference Include="Mongo2Go" Version="2.2.12" />
+    <ProjectReference Include="..\..\src\Abp.SettingManagement.Mvc.UI.MongoDB\Abp.SettingManagement.Mvc.UI.MongoDB.csproj" />
+    <ProjectReference Include="..\Abp.SettingManagement.Mvc.UI.TestBase\Abp.SettingManagement.Mvc.UI.TestBase.csproj" />
+  </ItemGroup>
+
+</Project>
