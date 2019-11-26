@@ -33,6 +33,8 @@
 
   <ItemGroup>
     <Content Remove="Properties\launchSettings.json" />
+    <Content Remove="Views\Components\Default.cshtml" />
+    <EmbeddedResource Include="Views\Components\Default.cshtml" />
     <None Include="Properties\launchSettings.json" />
     <None Include="Views\Components\Default.cshtml" />
     <None Include="Views\_ViewImports.cshtml" />

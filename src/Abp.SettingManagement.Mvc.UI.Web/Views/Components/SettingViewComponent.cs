@@ -9,7 +9,7 @@ namespace Abp.SettingManagement.Mvc.UI.Web.Views.Components
     [Widget(StyleFiles = new []{"/Views/Components/Default.css"})]
     public class SettingViewComponent : AbpViewComponent
     {
-        public IViewComponentResult Invoke(List<SettingDefinition> parameter)
+        public IViewComponentResult Invoke(IEnumerable<SettingDefinition> parameter)
         {
             return View("/Views/Components/Default.cshtml", parameter);
         }
