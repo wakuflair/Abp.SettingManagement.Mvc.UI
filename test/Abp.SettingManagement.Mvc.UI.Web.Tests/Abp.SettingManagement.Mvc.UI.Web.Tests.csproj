@@ -10,8 +10,6 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.3.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.3.0" />
     <PackageReference Include="Volo.Abp.AspNetCore.TestBase" Version="1.0.2" />
-    <PackageReference Include="Volo.Abp.Emailing" Version="1.0.2" />
-    <PackageReference Include="Volo.Abp.Settings" Version="1.0.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\host\Abp.SettingManagement.Mvc.UI.Web.Unified\Abp.SettingManagement.Mvc.UI.Web.Unified.csproj" />
+    <ProjectReference Include="..\..\src\Abp.SettingManagement.Mvc.UI.Web\Abp.SettingManagement.Mvc.UI.Web.csproj" />
     <ProjectReference Include="..\Abp.SettingManagement.Mvc.UI.Application.Tests\Abp.SettingManagement.Mvc.UI.Application.Tests.csproj" />
   </ItemGroup>
 

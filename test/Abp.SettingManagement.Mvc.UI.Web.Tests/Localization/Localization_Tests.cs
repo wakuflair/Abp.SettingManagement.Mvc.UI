@@ -1,22 +1,31 @@
 ﻿using System.Globalization;
 using System.IO;
 using System.Threading.Tasks;
+using Abp.SettingManagement.Mvc.UI.Localization;
 using Microsoft.Extensions.Localization;
 using Shouldly;
 using Volo.Abp.Settings;
 using Volo.Abp.VirtualFileSystem;
 using Xunit;
+using Xunit.Abstractions;
 
-namespace Abp.SettingManagement.Mvc.UI.Localization
+namespace Abp.SettingManagement.Mvc.UI.Web.Tests.Localization
 {
-    public class Localization_Tests : AbpSettingManagementMvcUIDomainTestBase
+    public class Localization_Tests : AbpSettingManagementMvcUIWebTestBase
     {
+        private readonly ITestOutputHelper _output;
+
+        public Localization_Tests(ITestOutputHelper output)
+        {
+            _output = output;
+        }
+
         [Fact]
         public Task BuiltIn_Setting_Definitions_Resource_Should_Be_Defined()
         {
             // Arrange
             var settingDefinitions = GetRequiredService<ISettingDefinitionManager>().GetAll();
-            var files = GetRequiredService<IVirtualFileProvider>().GetDirectoryContents("/Localization/Settings");
+            var files = GetRequiredService<IVirtualFileProvider>().GetDirectoryContents("/Localization/AbpSettingManagementMvcUI");
             var localizer = GetRequiredService<IStringLocalizer<AbpSettingManagementMvcUIResource>>();
 
             // Act
@@ -32,8 +41,10 @@ namespace Abp.SettingManagement.Mvc.UI.Localization
                 // Assert if the localization resource existed.
                 foreach (var settingDefinition in settingDefinitions)
                 {
-                    localizer["DisplayName:" + settingDefinition.Name].ResourceNotFound.ShouldBeFalse($"Resource file: {content.Name} Setting name: {settingDefinition.Name}");
-                    localizer["Description:" + settingDefinition.Name].ResourceNotFound.ShouldBeFalse($"Resource file: {content.Name} Setting name: {settingDefinition.Name}");
+                    string msg = $"Resource file: {content.Name} Setting name: {settingDefinition.Name}";
+                    _output.WriteLine(msg);
+                    localizer["DisplayName:" + settingDefinition.Name].ResourceNotFound.ShouldBeFalse(msg);
+                    localizer["Description:" + settingDefinition.Name].ResourceNotFound.ShouldBeFalse(msg);
                 }
             }
 
