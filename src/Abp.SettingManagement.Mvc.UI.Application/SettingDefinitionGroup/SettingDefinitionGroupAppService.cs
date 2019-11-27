@@ -71,12 +71,19 @@ namespace Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup
                         settingDefinition.WithProperty(kv.Key, kv.Value);
                     }
                 }
-                else
+
+                // Default group1: Others
+                if (!settingDefinition.Properties.ContainsKey(AbpSettingManagementMvcUIConst.Group1))
                 {
-                    // No define, we set the the default values of Group1 and Group2 
-                    settingDefinition
-                        .WithProperty(AbpSettingManagementMvcUIConst.Group1, AbpSettingManagementMvcUIConst.DefaultGroup)
-                        .WithProperty(AbpSettingManagementMvcUIConst.Group2, AbpSettingManagementMvcUIConst.DefaultGroup);
+                    settingDefinition.WithProperty(AbpSettingManagementMvcUIConst.Group1,
+                        AbpSettingManagementMvcUIConst.DefaultGroup);
+                }
+
+                // Default group2: Others
+                if (!settingDefinition.Properties.ContainsKey(AbpSettingManagementMvcUIConst.Group2))
+                {
+                    settingDefinition.WithProperty(AbpSettingManagementMvcUIConst.Group2,
+                        AbpSettingManagementMvcUIConst.DefaultGroup);
                 }
 
                 // Default type: text

@@ -1,4 +1,5 @@
 ﻿using Volo.Abp.Modularity;
+using Volo.Abp.VirtualFileSystem;
 
 namespace Abp.SettingManagement.Mvc.UI
 {
@@ -8,6 +9,12 @@ namespace Abp.SettingManagement.Mvc.UI
         )]
     public class AbpSettingManagementMvcUIApplicationTestModule : AbpModule
     {
-
+        public override void ConfigureServices(ServiceConfigurationContext context)
+        {
+            Configure<AbpVirtualFileSystemOptions>(options =>
+            {
+                options.FileSets.AddEmbedded<AbpSettingManagementMvcUIApplicationTestModule>("Abp.SettingManagement.Mvc.UI");
+            });
+        }
     }
 }

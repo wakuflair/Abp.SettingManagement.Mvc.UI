@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <Import Project="..\..\common.props" />
 
@@ -6,6 +6,14 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <RootNamespace>Abp.SettingManagement.Mvc.UI</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="SettingProperties\TestSettingProperties.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="SettingProperties\TestSettingProperties.json" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Abp.SettingManagement.Mvc.UI.Application\Abp.SettingManagement.Mvc.UI.Application.csproj" />
