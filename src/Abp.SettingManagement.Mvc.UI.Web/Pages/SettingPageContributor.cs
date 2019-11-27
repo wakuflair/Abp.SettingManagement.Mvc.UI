@@ -10,16 +10,14 @@ namespace Abp.SettingManagement.Mvc.UI.Web.Pages
 {
     public class SettingPageContributor : ISettingPageContributor
     {
-        public Task ConfigureAsync(SettingPageCreationContext context)
+        public async Task ConfigureAsync(SettingPageCreationContext context)
         {
             var groupService = context.ServiceProvider.GetService<ISettingDefinitionGroupAppService>();
 
-            foreach (var grp in groupService.GroupSettingDefinitions())
+            foreach (var grp in await groupService.GroupSettingDefinitions())
             {
                 context.Groups.Add(new SettingPageGroup(grp.GroupName, grp.GroupDisplayName, typeof(SettingViewComponent), grp.SettingDefinitions));
             }
-
-            return Task.CompletedTask;
         }
 
         public async Task<bool> CheckPermissionsAsync(SettingPageCreationContext context)

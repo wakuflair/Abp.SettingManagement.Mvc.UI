@@ -24,6 +24,8 @@ namespace Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup
 
         protected override void AfterAddApplication(IServiceCollection services)
         {
+            services.AddAlwaysAllowAuthorization();
+
             // Mock settings
             var settingDefinitionManager = Substitute.For<ISettingDefinitionManager>();
             settingDefinitionManager.GetAll().Returns(new List<SettingDefinition>
@@ -39,13 +41,13 @@ namespace Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup
         }
 
         [Fact]
-        public Task Settings_Should_Be_Grouped()
+        public async Task Settings_Should_Be_Grouped()
         {
             // Arrange
             // The TestSettingDefinitionsProvider should be executed by module system
 
             // Act
-            var groups = _service.GroupSettingDefinitions();
+            var groups = await _service.GroupSettingDefinitions();
 
             // Assert
             var group = groups.Single(g => g.GroupName == "TestGroup1");
@@ -63,18 +65,16 @@ namespace Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup
             setting2.Properties[AbpSettingManagementMvcUIConst.Group1].ShouldBe("TestGroup1");
             setting2.Properties[AbpSettingManagementMvcUIConst.Group2].ShouldBe("TestGroup2");
             setting2.Properties[AbpSettingManagementMvcUIConst.Type].ShouldBe("checkbox");
-
-            return Task.CompletedTask;
         }
 
         [Fact]
-        public Task Default_Property_Values_Should_Be_Set()
+        public async Task Default_Property_Values_Should_Be_Set()
         {
             // Arrange
             // The TestSettingDefinitionsProvider should be executed by module system
 
             // Act
-            var groups = _service.GroupSettingDefinitions();
+            var groups = await _service.GroupSettingDefinitions();
 
             // Assert
             // The property values of the TestSetting3 are default
@@ -82,8 +82,6 @@ namespace Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup
             setting3.Properties[AbpSettingManagementMvcUIConst.Group1].ShouldBe(AbpSettingManagementMvcUIConst.DefaultGroup);
             setting3.Properties[AbpSettingManagementMvcUIConst.Group2].ShouldBe(AbpSettingManagementMvcUIConst.DefaultGroup);
             setting3.Properties[AbpSettingManagementMvcUIConst.Type].ShouldBe(AbpSettingManagementMvcUIConst.DefaultType);
-
-            return Task.CompletedTask;
         }
     }
 }

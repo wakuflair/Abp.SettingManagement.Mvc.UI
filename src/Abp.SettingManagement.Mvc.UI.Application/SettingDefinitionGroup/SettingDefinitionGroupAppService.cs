@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Abp.SettingManagement.Mvc.UI.Authorization;
 using Abp.SettingManagement.Mvc.UI.Localization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Localization;
 using Volo.Abp.Application.Services;
+using Volo.Abp.Authorization;
 using Volo.Abp.Json;
 using Volo.Abp.Settings;
 using Volo.Abp.VirtualFileSystem;
@@ -26,8 +29,15 @@ namespace Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup
             _settingDefinitionManager = settingDefinitionManager;
         }
 
-        public IEnumerable<Dto.SettingDefinitionGroup> GroupSettingDefinitions()
+        public async Task<IEnumerable<Dto.SettingDefinitionGroup>> GroupSettingDefinitions()
         {
+            if (!(await AuthorizationService.IsGrantedAsync(AbpSettingManagementMvcUIPermissions.Global) ||
+                await AuthorizationService.IsGrantedAsync(AbpSettingManagementMvcUIPermissions.Tenant) ||
+                await AuthorizationService.IsGrantedAsync(AbpSettingManagementMvcUIPermissions.User)))
+            {
+                throw new AbpAuthorizationException("Authorization failed! No SettingManagementUI policy granted.");
+            }
+
             // Merge all the setting properties in to one dictionary
             var settingProperties = GetMergedSettingProperties();
 
