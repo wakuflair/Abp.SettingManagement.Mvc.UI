@@ -1,0 +1,9 @@
+﻿@using Volo.Abp.Settings
+@model Abp.SettingManagement.Mvc.UI.Web.Views.Components.SettingHtmlInfo
+@inject SettingProvider SettingProvider
+
+@if (!Model.Description.IsResourceNotFound)
+{
+    <p class="form-text">@Model.Description</p>
+}
+<input type="text" id="@Model.Id" value="@await SettingProvider.GetOrNullAsync(Model.Name)" class="form-control"/>
