@@ -17,7 +17,7 @@
   "Abp.Identity.Password.RequireNonAlphanumeric": {
     "Group1": "System",
     "Group2": "Password",
-    "Type": "text"
+    "Type": "checkbox"
   },
   "Abp.Identity.Password.RequireLowercase": {
     "Group1": "System",
