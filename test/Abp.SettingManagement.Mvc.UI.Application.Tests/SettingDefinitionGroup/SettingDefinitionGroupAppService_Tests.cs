@@ -1,8 +1,11 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using NSubstitute;
 using Shouldly;
+using Volo.Abp.Settings;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -19,8 +22,24 @@ namespace Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup
             _service = GetRequiredService<ISettingDefinitionGroupAppService>();
         }
 
+        protected override void AfterAddApplication(IServiceCollection services)
+        {
+            // Mock settings
+            var settingDefinitionManager = Substitute.For<ISettingDefinitionManager>();
+            settingDefinitionManager.GetAll().Returns(new List<SettingDefinition>
+            {
+                new SettingDefinition("TestSetting1", "1")
+                    .WithProperty(AbpSettingManagementMvcUIConst.Group1, "TestGroup1")
+                    .WithProperty(AbpSettingManagementMvcUIConst.Group2, "TestGroup2")
+                    .WithProperty(AbpSettingManagementMvcUIConst.Type, "number"),
+                new SettingDefinition("TestSetting2", "2"),
+                new SettingDefinition("TestSetting3", "3")
+            });
+            services.AddSingleton(settingDefinitionManager);
+        }
+
         [Fact]
-        public Task Should_Be_Grouped_Test()
+        public Task Settings_Should_Be_Grouped()
         {
             // Arrange
             // The TestSettingDefinitionsProvider should be executed by module system
@@ -33,13 +52,13 @@ namespace Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup
             group.GroupDisplayName.ShouldBe("TestGroup1");
             group.SettingDefinitions.Count().ShouldBe(2);
 
-            // The properties of the TestSetting1 are set with "WithProperty" method
+            // The property values of the TestSetting1 are set with "WithProperty" method
             var setting1 = group.SettingDefinitions.Single(sd => sd.Name == "TestSetting1");
             setting1.Properties[AbpSettingManagementMvcUIConst.Group1].ShouldBe("TestGroup1");
             setting1.Properties[AbpSettingManagementMvcUIConst.Group2].ShouldBe("TestGroup2");
             setting1.Properties[AbpSettingManagementMvcUIConst.Type].ShouldBe("number");
 
-            // The properties of the TestSetting2 are set by SettingProperty json file
+            // The property values of the TestSetting2 are from the TestSettingProperties.json file
             var setting2 = group.SettingDefinitions.Single(sd => sd.Name == "TestSetting2");
             setting2.Properties[AbpSettingManagementMvcUIConst.Group1].ShouldBe("TestGroup1");
             setting2.Properties[AbpSettingManagementMvcUIConst.Group2].ShouldBe("TestGroup2");
@@ -49,7 +68,7 @@ namespace Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup
         }
 
         [Fact]
-        public Task DefaultProperty_Test()
+        public Task Default_Property_Values_Should_Be_Set()
         {
             // Arrange
             // The TestSettingDefinitionsProvider should be executed by module system

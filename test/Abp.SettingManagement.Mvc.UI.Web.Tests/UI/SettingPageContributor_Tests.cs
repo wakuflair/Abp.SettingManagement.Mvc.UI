@@ -18,7 +18,7 @@ namespace Abp.SettingManagement.Mvc.UI.Web.Tests.UI
         }
 
         [Fact]
-        public async Task Permission_Test()
+        public async Task Should_Has_Permission_For_Admin()
         {
             // Arrange
 
