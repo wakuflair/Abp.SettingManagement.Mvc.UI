@@ -6,7 +6,7 @@
     string value = await SettingProvider.GetOrNullAsync(Model.Name);
     string checkedStr = string.Compare(value, "true", StringComparison.OrdinalIgnoreCase) == 0 ? "checked" : "";
 }
-<div class="checkbox">
-    <input type="checkbox" id="@Model.Id" value="@value" class="form-check-input" @checkedStr/>
-    <label class="form-check-label" for="@Model.Id">@Model.Description</label>
+<div class="custom-checkbox custom-control">
+    <input type="checkbox" id="@Model.Id" value="@value" class="custom-control-input" @checkedStr/>
+    <label class="custom-control-label" for="@Model.Id">@Model.Description</label>
 </div>
