@@ -1,7 +1,21 @@
 ﻿﻿(function ($) {
-    var l = abp.localization.getResource('AbpSettingManagement');
 
-    $(document).on("AbpSettingSaved", function () {
-        abp.notify.success(l("SuccessfullySaved"));
-    });
-})(jQuery);
+     $("form").submit(function(e) {
+         e.preventDefault();
+
+         if (!$(e.currentTarget).valid()) {
+             return;
+         }
+
+         var input = $(e.currentTarget).serializeFormToObject();
+
+         abp.notify.success("Settings saved.");
+/*
+         _profileService.update(
+             input
+         ).then(function (result) {
+             abp.notify.success(l("PersonalSettingsSaved"));
+         });
+*/
+     });
+ })(jQuery);

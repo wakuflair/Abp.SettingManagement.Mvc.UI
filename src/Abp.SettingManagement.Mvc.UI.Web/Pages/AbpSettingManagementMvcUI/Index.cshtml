@@ -25,7 +25,10 @@
                     <abp-tab title="@group.GroupDisplayName">
                         <h2>@group.GroupDisplayName</h2>
                         <hr class="my-4" />
-                        @await Component.InvokeAsync(typeof(SettingViewComponent), group.SettingDefinitions)
+                        <form method="post" id="@(group.GroupName)SettingGroup">
+                            @await Component.InvokeAsync(typeof(SettingViewComponent), group)
+                            <abp-button type="submit" button-type="Primary" text="@L["Save"].Value" />
+                        </form>
                     </abp-tab>
                 }
             </abp-tabs>

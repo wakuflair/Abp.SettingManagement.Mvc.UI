@@ -14,12 +14,12 @@ namespace Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup
     public class SettingDefinitionGroupAppService_Tests : AbpSettingManagementMvcUIApplicationTestBase
     {
         private readonly ITestOutputHelper _output;
-        private readonly ISettingDefinitionGroupAppService _service;
+        private readonly ISettingManagementUIAppService _service;
 
         public SettingDefinitionGroupAppService_Tests(ITestOutputHelper output)
         {
             _output = output;
-            _service = GetRequiredService<ISettingDefinitionGroupAppService>();
+            _service = GetRequiredService<ISettingManagementUIAppService>();
         }
 
         protected override void AfterAddApplication(IServiceCollection services)

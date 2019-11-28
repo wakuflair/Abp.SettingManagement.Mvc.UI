@@ -1,12 +1,10 @@
-﻿@using Volo.Abp.Settings
-@model Abp.SettingManagement.Mvc.UI.Web.Views.Components.SettingHtmlInfo
-@inject SettingProvider SettingProvider
+﻿@model Abp.SettingManagement.Mvc.UI.Web.Views.Components.SettingHtmlInfo
 
 @{
-    string value = await SettingProvider.GetOrNullAsync(Model.Name);
+    string value = Model.Value;
     string checkedStr = string.Compare(value, "true", StringComparison.OrdinalIgnoreCase) == 0 ? "checked" : "";
 }
 <div class="custom-checkbox custom-control">
-    <input type="checkbox" id="@Model.Id" value="@value" class="custom-control-input" @checkedStr/>
-    <label class="custom-control-label" for="@Model.Id">@Model.Description</label>
+    <input type="checkbox" id="@Model.FormId" name="@Model.FormName" value="@value" class="custom-control-input" @checkedStr/>
+    <label class="custom-control-label" for="@Model.FormId">@Model.Description</label>
 </div>

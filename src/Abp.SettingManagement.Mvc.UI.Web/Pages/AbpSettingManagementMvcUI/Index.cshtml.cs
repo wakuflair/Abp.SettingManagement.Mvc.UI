@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup;
 using Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup.Dto;
@@ -9,17 +8,21 @@ namespace Abp.SettingManagement.Mvc.UI.Web.Pages.AbpSettingManagementMvcUI
 {
     public class IndexModel : PageModel
     {
-        private readonly ISettingDefinitionGroupAppService _settingDefinitionGroupAppService;
+        private readonly ISettingManagementUIAppService _settingManagementUIAppService;
         public IEnumerable<SettingGroup> Groups { get; set; }
 
-        public IndexModel(ISettingDefinitionGroupAppService settingDefinitionGroupAppService)
+        public IndexModel(ISettingManagementUIAppService settingManagementUIAppService)
         {
-            _settingDefinitionGroupAppService = settingDefinitionGroupAppService;
+            _settingManagementUIAppService = settingManagementUIAppService;
         }
 
         public async Task OnGetAsync()
         {
-            Groups = await _settingDefinitionGroupAppService.GroupSettingDefinitions();
+            Groups = await _settingManagementUIAppService.GroupSettingDefinitions();
+        }
+
+        public async Task OnPostAsync(object obj)
+        {
         }
     }
 }

@@ -1,28 +1,37 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Abp.SettingManagement.Mvc.UI.Localization;
+using Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Localization;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.UI.Widgets;
 using Volo.Abp.Localization;
 using Volo.Abp.Settings;
+using Volo.Abp.Threading;
 
 namespace Abp.SettingManagement.Mvc.UI.Web.Views.Components
 {
-    [Widget(StyleFiles = new []{"/Views/Components/Default.css"})]
+    [Widget(StyleFiles = new[] { "/Views/Components/Default.css" })]
     public class SettingViewComponent : AbpViewComponent
     {
         private readonly IHtmlLocalizer<AbpSettingManagementMvcUIResource> _localizer;
+        private readonly ISettingProvider _settingProvider;
 
-        public SettingViewComponent(IHtmlLocalizer<AbpSettingManagementMvcUIResource> localizer)
+        public SettingViewComponent(IHtmlLocalizer<AbpSettingManagementMvcUIResource> localizer, ISettingProvider settingProvider)
         {
             _localizer = localizer;
+            _settingProvider = settingProvider;
         }
 
-        public IViewComponentResult Invoke(IEnumerable<SettingDefinition> parameter)
+        public IViewComponentResult Invoke(SettingGroup parameter)
         {
-            var settingInfos = parameter.Select((sd, index) => new SettingHtmlInfo(sd, _localizer, index));
+            var settingInfos = parameter.SettingDefinitions.Select((sd, index) => new SettingHtmlInfo(
+                sd,
+                _localizer["DisplayName:" + sd.Name],
+                _localizer["Description:" + sd.Name],
+                AsyncHelper.RunSync(() => _settingProvider.GetOrNullAsync(sd.Name))
+                ));
             return View("/Views/Components/Default.cshtml", settingInfos);
         }
     }
@@ -32,21 +41,27 @@ namespace Abp.SettingManagement.Mvc.UI.Web.Views.Components
         public string Name { get; }
         public LocalizedHtmlString DisplayName { get; }
         public LocalizedHtmlString Description { get; }
+        public string Value { get; }
         public string Group1 { get; set; }
         public string Group2 { get; set; }
         public string Type { get; }
-        public string Id { get; }
+        public string FormId { get; }
+        public string FormName { get; }
         public SettingDefinition SettingDefinition { get; }
 
-        public SettingHtmlInfo(SettingDefinition settingDefinition, IHtmlLocalizer<AbpSettingManagementMvcUIResource> localizer, int index)
+        public SettingHtmlInfo(SettingDefinition settingDefinition,
+            LocalizedHtmlString displayName, LocalizedHtmlString description,
+            string value)
         {
             Name = settingDefinition.Name;
-            DisplayName = localizer["DisplayName:" + settingDefinition.Name];
-            Description = localizer["Description:" + settingDefinition.Name];
-            Group1 = (string) settingDefinition.Properties[AbpSettingManagementMvcUIConst.Group1];
-            Group2 = (string) settingDefinition.Properties[AbpSettingManagementMvcUIConst.Group2];
+            DisplayName = displayName;
+            Description = description;
+            Value = value;
+            Group1 = (string)settingDefinition.Properties[AbpSettingManagementMvcUIConst.Group1];
+            Group2 = (string)settingDefinition.Properties[AbpSettingManagementMvcUIConst.Group2];
             Type = (string)settingDefinition.Properties[AbpSettingManagementMvcUIConst.Type];
-            Id = $"Setting{index}";
+            FormId = Name;
+            FormName = Name.Replace('.', '_');
             SettingDefinition = settingDefinition;
         }
     }

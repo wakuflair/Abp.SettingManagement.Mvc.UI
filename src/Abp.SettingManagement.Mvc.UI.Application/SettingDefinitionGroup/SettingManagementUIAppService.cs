@@ -11,17 +11,18 @@ using Volo.Abp.Authorization;
 using Volo.Abp.Json;
 using Volo.Abp.Settings;
 using Volo.Abp.VirtualFileSystem;
+using Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup.Dto;
 
 namespace Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup
 {
-    public class SettingDefinitionGroupAppService : ApplicationService, ISettingDefinitionGroupAppService
+    public class SettingManagementUIAppService : ApplicationService, ISettingManagementUIAppService
     {
         private readonly IStringLocalizer<AbpSettingManagementMvcUIResource> _localizer;
         private readonly IVirtualFileProvider _fileProvider;
         private readonly IJsonSerializer _jsonSerializer;
         private readonly ISettingDefinitionManager _settingDefinitionManager;
 
-        public SettingDefinitionGroupAppService(IStringLocalizer<AbpSettingManagementMvcUIResource> localizer, IVirtualFileProvider fileProvider, IJsonSerializer jsonSerializer, ISettingDefinitionManager settingDefinitionManager)
+        public SettingManagementUIAppService(IStringLocalizer<AbpSettingManagementMvcUIResource> localizer, IVirtualFileProvider fileProvider, IJsonSerializer jsonSerializer, ISettingDefinitionManager settingDefinitionManager)
         {
             _localizer = localizer;
             _fileProvider = fileProvider;
@@ -29,7 +30,7 @@ namespace Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup
             _settingDefinitionManager = settingDefinitionManager;
         }
 
-        public async Task<IEnumerable<Dto.SettingGroup>> GroupSettingDefinitions()
+        public async Task<IEnumerable<SettingGroup>> GroupSettingDefinitions()
         {
             if (!(await AuthorizationService.IsGrantedAsync(AbpSettingManagementMvcUIPermissions.Global) ||
                 await AuthorizationService.IsGrantedAsync(AbpSettingManagementMvcUIPermissions.Tenant) ||
@@ -47,13 +48,18 @@ namespace Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup
             // Group the setting definitions
             return settingDefinitions
                 .GroupBy(sd => sd.Properties[AbpSettingManagementMvcUIConst.Group1].ToString())
-                .Select(grp => new Dto.SettingGroup
+                .Select(grp => new SettingGroup
                 {
                     GroupName = grp.Key,
                     GroupDisplayName = _localizer[grp.Key],
                     SettingDefinitions = grp
                 })
                 ;
+        }
+
+        public Task SetSettingValues(IDictionary<string, string> settingValues)
+        {
+            throw new System.NotImplementedException();
         }
 
         private IDictionary<string, IDictionary<string, string>> GetMergedSettingProperties()
