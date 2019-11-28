@@ -1,0 +1,7 @@
+﻿@model Abp.SettingManagement.Mvc.UI.Web.Pages.Components.SettingHtmlInfo
+
+@if (!Model.Description.IsResourceNotFound)
+{
+    <p class="form-text">@Model.Description</p>
+}
+<input type="number" id="@Model.Name" name="@Model.FormName" value="@Model.Value" class="form-control"/>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>wakuflair</authors>
+    <owners>$author$</owners>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/wakuflair/Abp.SettingManagement.Mvc.UI</projectUrl>
+    <description>$description$</description>
+    <copyright>Copyright 2019</copyright>
+    <tags>abp module settingmanagement</tags>
+  </metadata>
+</package>

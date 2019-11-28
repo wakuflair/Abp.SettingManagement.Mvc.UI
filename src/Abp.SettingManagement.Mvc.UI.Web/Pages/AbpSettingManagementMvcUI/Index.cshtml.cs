@@ -20,9 +20,5 @@ namespace Abp.SettingManagement.Mvc.UI.Web.Pages.AbpSettingManagementMvcUI
         {
             Groups = await _settingManagementUIAppService.GroupSettingDefinitions();
         }
-
-        public async Task OnPostAsync(object obj)
-        {
-        }
     }
 }

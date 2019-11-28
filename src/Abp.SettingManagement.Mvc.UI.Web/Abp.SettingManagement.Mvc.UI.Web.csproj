@@ -8,15 +8,18 @@
     <IsPackable>true</IsPackable>
     <OutputType>Library</OutputType>
     <RootNamespace>Abp.SettingManagement.Mvc.UI.Web</RootNamespace>
-    <Version>0.0.5</Version>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.0.6</Version>
     <Authors>wakuflair</Authors>
     <Description>An ABP UI module used to manage ABP settings</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/wakuflair/Abp.SettingManagement.Mvc.UI</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/wakuflair/Abp.SettingManagement.Mvc.UI</PackageProjectUrl>
+    <PackageTags>abp module settingmanagement</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.AutoMapper" Version="1.0.2" />
     <PackageReference Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Shared" Version="1.0.2" />
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="1.0.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,25 +28,27 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Pages\**\*.cshtml" />
-    <EmbeddedResource Include="Pages\**\*.css" />
-    <EmbeddedResource Include="Pages\**\*.js" />
-    <EmbeddedResource Include="Views\Components\Partials\_Checkbox.cshtml" />
-    <EmbeddedResource Include="Views\Components\Partials\_Number.cshtml" />
+    <EmbeddedResource Include="Views\**\*.cshtml" />
     <EmbeddedResource Include="wwwroot\**\*.*" />
-    <Content Remove="Pages\**\*.cshtml" />
-    <Content Remove="Pages\**\*.css" />
-    <Content Remove="Pages\**\*.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="wwwroot\**\*.*" />
+    <Content Remove="Pages\**\*.cshtml" />
+    <Content Remove="Views\**\*.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Remove="Properties\launchSettings.json" />
-    <Content Remove="Views\Components\Partials\_Text.cshtml" />
-    <Content Remove="Views\Components\Text.cshtml" />
-    <EmbeddedResource Include="Views\Components\Partials\_Text.cshtml" />
+    <None Remove="Pages\AbpSettingManagementMvcUI\Index.js" />
+    <None Remove="Pages\Components\Default.css" />
+    <EmbeddedResource Include="Pages\AbpSettingManagementMvcUI\Index.js" />
+    <EmbeddedResource Include="Pages\Components\Default.css" />
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
     <None Include="Properties\launchSettings.json" />
-    <None Include="Views\Components\Default.cshtml" />
-    <None Include="Views\_ViewImports.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
