@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Abp.SettingManagement.Mvc.UI.Extensions;
 using Abp.SettingManagement.Mvc.UI.Localization;
-using Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup.Dto;
+using Abp.SettingManagement.Mvc.UI.SettingManagementUI.Dto;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Localization;
 using Volo.Abp.AspNetCore.Mvc;
@@ -42,11 +43,10 @@ namespace Abp.SettingManagement.Mvc.UI.Web.Views.Components
         public LocalizedHtmlString DisplayName { get; }
         public LocalizedHtmlString Description { get; }
         public string Value { get; }
-        public string Group1 { get; set; }
-        public string Group2 { get; set; }
-        public string Type { get; }
-        public string FormId { get; }
+        public string Group1 { get; }
+        public string Group2 { get; }
         public string FormName { get; }
+        public string Type { get; }
         public SettingDefinition SettingDefinition { get; }
 
         public SettingHtmlInfo(SettingDefinition settingDefinition,
@@ -59,9 +59,8 @@ namespace Abp.SettingManagement.Mvc.UI.Web.Views.Components
             Value = value;
             Group1 = (string)settingDefinition.Properties[AbpSettingManagementMvcUIConst.Group1];
             Group2 = (string)settingDefinition.Properties[AbpSettingManagementMvcUIConst.Group2];
+            FormName = AbpSettingManagementMvcUIConst.FormNamePrefix + Name.DotToUnderscore();
             Type = (string)settingDefinition.Properties[AbpSettingManagementMvcUIConst.Type];
-            FormId = Name;
-            FormName = Name.Replace('.', '_');
             SettingDefinition = settingDefinition;
         }
     }

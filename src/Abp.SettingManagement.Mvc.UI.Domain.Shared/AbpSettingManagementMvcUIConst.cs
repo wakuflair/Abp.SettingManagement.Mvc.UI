@@ -9,5 +9,6 @@
         public const string DefaultType = "text";
 
         public const string SettingPropertiesFileFolder = "/SettingProperties";
+        public const string FormNamePrefix = "Setting_";
     }
 }

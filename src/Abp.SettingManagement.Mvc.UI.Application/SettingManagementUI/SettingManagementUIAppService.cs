@@ -1,19 +1,22 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Abp.SettingManagement.Mvc.UI.Authorization;
+using Abp.SettingManagement.Mvc.UI.Extensions;
 using Abp.SettingManagement.Mvc.UI.Localization;
+using Abp.SettingManagement.Mvc.UI.SettingManagementUI.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Localization;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Authorization;
 using Volo.Abp.Json;
+using Volo.Abp.SettingManagement;
 using Volo.Abp.Settings;
 using Volo.Abp.VirtualFileSystem;
-using Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup.Dto;
 
-namespace Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup
+namespace Abp.SettingManagement.Mvc.UI.SettingManagementUI
 {
     public class SettingManagementUIAppService : ApplicationService, ISettingManagementUIAppService
     {
@@ -21,13 +24,15 @@ namespace Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup
         private readonly IVirtualFileProvider _fileProvider;
         private readonly IJsonSerializer _jsonSerializer;
         private readonly ISettingDefinitionManager _settingDefinitionManager;
+        private readonly ISettingManager _settingManager;
 
-        public SettingManagementUIAppService(IStringLocalizer<AbpSettingManagementMvcUIResource> localizer, IVirtualFileProvider fileProvider, IJsonSerializer jsonSerializer, ISettingDefinitionManager settingDefinitionManager)
+        public SettingManagementUIAppService(IStringLocalizer<AbpSettingManagementMvcUIResource> localizer, IVirtualFileProvider fileProvider, IJsonSerializer jsonSerializer, ISettingDefinitionManager settingDefinitionManager, ISettingManager settingManager)
         {
             _localizer = localizer;
             _fileProvider = fileProvider;
             _jsonSerializer = jsonSerializer;
             _settingDefinitionManager = settingDefinitionManager;
+            _settingManager = settingManager;
         }
 
         public async Task<IEnumerable<SettingGroup>> GroupSettingDefinitions()
@@ -57,9 +62,19 @@ namespace Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup
                 ;
         }
 
-        public Task SetSettingValues(IDictionary<string, string> settingValues)
+        public async Task SetSettingValues(IDictionary<string, string> settingValues)
         {
-            throw new System.NotImplementedException();
+            foreach (var kv in settingValues)
+            {
+                string pascalCaseName = kv.Key.ToPascalCase();
+                if (!pascalCaseName.StartsWith(AbpSettingManagementMvcUIConst.FormNamePrefix))
+                {
+                    continue;
+                }
+
+                string name = pascalCaseName.RemovePreFix(AbpSettingManagementMvcUIConst.FormNamePrefix).UnderscoreToDot();
+                await _settingManager.SetGlobalAsync(name, kv.Value);
+            }
         }
 
         private IDictionary<string, IDictionary<string, string>> GetMergedSettingProperties()

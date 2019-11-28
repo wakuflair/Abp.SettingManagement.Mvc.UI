@@ -12,7 +12,7 @@
             <abp-card-body>
                 @foreach (var settingHtmlInfo in group)
                 {
-                    <label for="@settingHtmlInfo.FormId">@settingHtmlInfo.DisplayName</label>
+                    <label for="@settingHtmlInfo.Name">@settingHtmlInfo.DisplayName</label>
                     @await Html.PartialAsync($"/Views/Components/Partials/_{settingHtmlInfo.Type.ToPascalCase()}.cshtml", settingHtmlInfo)
                 }
             </abp-card-body>

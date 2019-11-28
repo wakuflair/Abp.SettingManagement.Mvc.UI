@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Volo.Abp.Settings;
 
-namespace Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup.Dto
+namespace Abp.SettingManagement.Mvc.UI.SettingManagementUI.Dto
 {
     public class SettingGroup
     {

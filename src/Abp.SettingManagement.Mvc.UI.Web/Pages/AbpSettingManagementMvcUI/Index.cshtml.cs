@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup;
-using Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup.Dto;
+using Abp.SettingManagement.Mvc.UI.SettingManagementUI;
+using Abp.SettingManagement.Mvc.UI.SettingManagementUI.Dto;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Abp.SettingManagement.Mvc.UI.Web.Pages.AbpSettingManagementMvcUI

@@ -5,6 +5,6 @@
     string checkedStr = string.Compare(value, "true", StringComparison.OrdinalIgnoreCase) == 0 ? "checked" : "";
 }
 <div class="custom-checkbox custom-control">
-    <input type="checkbox" id="@Model.FormId" name="@Model.FormName" value="@value" class="custom-control-input" @checkedStr/>
-    <label class="custom-control-label" for="@Model.FormId">@Model.Description</label>
+    <input type="checkbox" id="@Model.Name" name="@Model.FormName" value="@value" class="custom-control-input" @checkedStr/>
+    <label class="custom-control-label" for="@Model.Name">@Model.Description</label>
 </div>
