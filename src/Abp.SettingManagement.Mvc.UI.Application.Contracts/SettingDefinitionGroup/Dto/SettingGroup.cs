@@ -3,7 +3,7 @@ using Volo.Abp.Settings;
 
 namespace Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup.Dto
 {
-    public class SettingDefinitionGroup
+    public class SettingGroup
     {
         public string GroupName { get; set; }
         public string GroupDisplayName { get; set; }

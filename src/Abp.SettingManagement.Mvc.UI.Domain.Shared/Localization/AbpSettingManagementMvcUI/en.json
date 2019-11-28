@@ -1,6 +1,7 @@
 {
   "culture": "en",
   "texts": {
+    "Settings": "Settings",
     "System": "System",
     "Localization": "Localization",
     "Password": "Password",

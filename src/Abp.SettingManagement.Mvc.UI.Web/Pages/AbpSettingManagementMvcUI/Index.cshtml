@@ -1,6 +1,34 @@
-﻿@page
-@model Abp.SettingManagement.Mvc.UI.Web.Pages.AbpSettingManagementMvcUI.IndexModel
+﻿@page  "/SettingManagement"
+@using Abp.SettingManagement.Mvc.UI.Localization
+@using Abp.SettingManagement.Mvc.UI.Web.Pages.AbpSettingManagementMvcUI
+@using Abp.SettingManagement.Mvc.UI.Web.Views.Components
+@using Volo.Abp.AspNetCore.Mvc.UI.Layout
+@using Microsoft.AspNetCore.Mvc.Localization
+@model IndexModel
+@inject IHtmlLocalizer<AbpSettingManagementMvcUIResource> L
+@inject IPageLayout PageLayout
 @{
+    PageLayout.Content.Title = L["Settings"].Value;
 }
-<h1>AbpSettingManagementMvcUI</h1>
-<p>A sample page for the AbpSettingManagementMvcUI module.</p>
+@section scripts {
+    <abp-script-bundle name="@typeof(IndexModel).FullName">
+        <abp-script src="/Pages/AbpSettingManagementMvcUI/Index.js" />
+    </abp-script-bundle>
+}
+
+<div id="SettingManagementUIWrapper">
+    <abp-card>
+        <abp-card-body>
+            <abp-tabs tab-style="PillVertical" vertical-header-size="_3">
+                @foreach (var group in Model.Groups)
+                {
+                    <abp-tab title="@group.GroupDisplayName">
+                        <h2>@group.GroupDisplayName</h2>
+                        <hr class="my-4" />
+                        @await Component.InvokeAsync(typeof(SettingViewComponent), group.SettingDefinitions)
+                    </abp-tab>
+                }
+            </abp-tabs>
+        </abp-card-body>
+    </abp-card>
+</div>

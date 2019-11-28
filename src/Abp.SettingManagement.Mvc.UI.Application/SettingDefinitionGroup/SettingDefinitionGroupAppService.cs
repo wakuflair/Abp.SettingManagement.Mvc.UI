@@ -29,7 +29,7 @@ namespace Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup
             _settingDefinitionManager = settingDefinitionManager;
         }
 
-        public async Task<IEnumerable<Dto.SettingDefinitionGroup>> GroupSettingDefinitions()
+        public async Task<IEnumerable<Dto.SettingGroup>> GroupSettingDefinitions()
         {
             if (!(await AuthorizationService.IsGrantedAsync(AbpSettingManagementMvcUIPermissions.Global) ||
                 await AuthorizationService.IsGrantedAsync(AbpSettingManagementMvcUIPermissions.Tenant) ||
@@ -47,7 +47,7 @@ namespace Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup
             // Group the setting definitions
             return settingDefinitions
                 .GroupBy(sd => sd.Properties[AbpSettingManagementMvcUIConst.Group1].ToString())
-                .Select(grp => new Dto.SettingDefinitionGroup
+                .Select(grp => new Dto.SettingGroup
                 {
                     GroupName = grp.Key,
                     GroupDisplayName = _localizer[grp.Key],

@@ -6,6 +6,6 @@ namespace Abp.SettingManagement.Mvc.UI.SettingDefinitionGroup
 {
     public interface ISettingDefinitionGroupAppService : IApplicationService
     {
-        Task<IEnumerable<Dto.SettingDefinitionGroup>> GroupSettingDefinitions();
+        Task<IEnumerable<Dto.SettingGroup>> GroupSettingDefinitions();
     }
 }
