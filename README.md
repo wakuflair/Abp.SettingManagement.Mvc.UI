@@ -50,7 +50,7 @@ An [ABP](http://abp.io) module used to manage ABP settings
 
     ![](doc/images/permissions.png)
   
-1. Now your can use "Administration > Settings" menu to manage your settings!
+1. Refresh the browser then you can use "Administration > Settings" menu to manage your settings!
             
 # Localization
 
@@ -59,7 +59,7 @@ This module uses ABP's localization system to display the localization informati
 * en
 * zh-Hans
   
-The localization resource files are under `/Localization/AbpSettingManagementMvcUI` of the `Abp.SettingManagement.Mvc.UI.Domain.Shared` project. You can add more resource files to make this module support more languages. Welcome PRs :blush: . For ABP's localization system, please see [the document]()
+The localization resource files are under `/Localization/AbpSettingManagementMvcUI` of the `Abp.SettingManagement.Mvc.UI.Domain.Shared` project. You can add more resource files to make this module support more languages. Welcome PRs :blush: . For ABP's localization system, please see [the document](https://docs.abp.io/en/abp/latest/Localization)
 
 # SettingProperties.json
 
