@@ -10,6 +10,7 @@
          }
 
          var input = $(e.currentTarget).serializeFormToObject();
+         abp.log.info(input);
          service.setSettingValues(input)
              .then(function (result) {
                  abp.notify.success("Settings saved.");
