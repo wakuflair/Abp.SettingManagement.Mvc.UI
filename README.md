@@ -50,7 +50,7 @@ An [ABP](http://abp.io) module used to manage ABP settings
 
     ![](doc/images/permissions.png)
   
-1. Now your can use "Administration > Settings" menu to manage your settings!
+1. Refresh the browser then you can use "Administration > Settings" menu to manage your settings!
             
 # Localization
 
