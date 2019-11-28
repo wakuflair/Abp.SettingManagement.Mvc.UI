@@ -1,6 +1,7 @@
 ﻿using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
 using Volo.Abp.Application;
+using Volo.Abp.SettingManagement;
 
 namespace Abp.SettingManagement.Mvc.UI
 {
@@ -10,6 +11,7 @@ namespace Abp.SettingManagement.Mvc.UI
         typeof(AbpDddApplicationModule),
         typeof(AbpAutoMapperModule)
         )]
+    [DependsOn(typeof(AbpSettingManagementDomainModule))]
     public class AbpSettingManagementMvcUIApplicationModule : AbpModule
     {
         public override void ConfigureServices(ServiceConfigurationContext context)
