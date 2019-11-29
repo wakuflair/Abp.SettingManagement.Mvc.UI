@@ -1,0 +1,7 @@
+﻿{
+  "Connection.Port": {
+    "Group1": "Server",
+    "Group2": "Connection",
+    "Type": "number"
+  }
+}

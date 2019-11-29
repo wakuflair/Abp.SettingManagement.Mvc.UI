@@ -82,7 +82,18 @@ TODO
 
 TODO
 
+OUTLINE:
+
+* MyAbpApp.Domain.Shared
+
+    1. Add setting definitions: `MyAbpAppSettingDefinitionProvider`
+    1. Add localization resources: `/Localization/SettingResource`
+
+* MyAbpApp.Web
+    
+    1. Configure localization option: `MyAbpAppWebModule`
+
 # Roadmap
 
-- [ ] Adding more languages
-- [ ] Supporting setting providers
+- [ ] Add more languages
+- [ ] Support setting providers

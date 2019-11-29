@@ -1,12 +1,13 @@
 ﻿{
   "culture": "en",
   "texts": {
-    "MySettingGroup1": "My setting group1",
-    "MySettingGroup2": "My setting group2",
-    "DisplayName:MySetting1": "My setting 1",
-    "DisplayName:MySetting2": "My setting 2",
+    "Server": "Server",
+    "Connection": "Connection",
+    
+    "DisplayName:Connection.Ip": "IP",
+    "DisplayName:Connection.Port": "Port",
 
-    "Description:MySetting1": "The description of setting1.",
-    "Description:MySetting2": "The description of setting2.",
+    "Description:Connection.Ip": "The IP address of the server.",
+    "Description:Connection.Port": "The Port number of the server.",
   }
 }
