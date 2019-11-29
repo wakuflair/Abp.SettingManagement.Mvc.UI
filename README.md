@@ -59,8 +59,26 @@ This module uses ABP's localization system to display the localization informati
 * en
 * zh-Hans
   
-The localization resource files are under `/Localization/AbpSettingManagementMvcUI` of the `Abp.SettingManagement.Mvc.UI.Domain.Shared` project. You can add more resource files to make this module support more languages. Welcome PRs :blush: . For ABP's localization system, please see [the document](https://docs.abp.io/en/abp/latest/Localization)
+The localization resource files are under `/Localization/AbpSettingManagementMvcUI` of the `Abp.SettingManagement.Mvc.UI.Domain.Shared` project. 
 
-# SettingProperties.json
+You can add more resource files to make this module support more languages. Welcome PRs :blush: .
+> For ABP's localization system, please see [the document](https://docs.abp.io/en/abp/latest/Localization)
+
+# Setting Properties
+
+* Grouping
+* Type
 
 TODO
+
+# Setting renderers
+
+* Adding new renderer
+* Customizing existed renderers
+
+TODO
+
+# Roadmap
+
+- [ ] Adding more languages
+- [ ] Support setting providers
