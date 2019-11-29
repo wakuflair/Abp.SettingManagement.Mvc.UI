@@ -6,7 +6,7 @@ An [ABP](http://abp.io) module used to manage ABP settings
 
 # Features
 
-* Manage ABP settings via UI
+* Manage ABP setting values via UI
 * Support localization
 * Control display of the settings via JSON (grouping, form controls, etc.)
 
@@ -66,11 +66,11 @@ An [ABP](http://abp.io) module used to manage ABP settings
 
         ```
 
-1. Launch your ABP application, grant the following permission to your user:
+1. Launch your ABP application, grant the following permissions to your user:
 
     ![permissions](./doc/images/permissions.png)
   
-1. Refresh the browser then you can use "Administration > Settings" menu to manage your settings!
+1. Refresh the browser then you can use "Administration > Settings" menu to see the settings!
             
 # Localization
 
