@@ -4,12 +4,14 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.Modularity;
+using Volo.Abp.SettingManagement.EntityFrameworkCore;
 
 namespace Abp.SettingManagement.Mvc.UI.EntityFrameworkCore
 {
     [DependsOn(
         typeof(AbpSettingManagementMvcUITestBaseModule),
-        typeof(AbpSettingManagementMvcUIEntityFrameworkCoreModule)
+        typeof(AbpSettingManagementMvcUIEntityFrameworkCoreModule),
+        typeof(AbpSettingManagementEntityFrameworkCoreModule)
         )]
     public class AbpSettingManagementMvcUIEntityFrameworkCoreTestModule : AbpModule
     {

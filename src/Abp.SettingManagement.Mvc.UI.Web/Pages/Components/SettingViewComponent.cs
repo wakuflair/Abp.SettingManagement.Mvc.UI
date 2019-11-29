@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Abp.SettingManagement.Mvc.UI.Extensions;
 using Abp.SettingManagement.Mvc.UI.Localization;
 using Abp.SettingManagement.Mvc.UI.SettingManagementUI.Dto;
@@ -7,13 +6,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Localization;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.UI.Widgets;
-using Volo.Abp.Localization;
 using Volo.Abp.Settings;
 using Volo.Abp.Threading;
 
 namespace Abp.SettingManagement.Mvc.UI.Web.Pages.Components
 {
-    [Widget(StyleFiles = new[] { "/Pages/Components/Default.css" })]
+    [Widget(StyleFiles = new[] { "~/Pages/Components/Default.css" })]
     public class SettingViewComponent : AbpViewComponent
     {
         private readonly IHtmlLocalizer<AbpSettingManagementMvcUIResource> _localizer;

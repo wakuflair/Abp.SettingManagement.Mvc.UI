@@ -4,6 +4,7 @@ using Volo.Abp.Authorization;
 using Volo.Abp.Autofac;
 using Volo.Abp.Data;
 using Volo.Abp.Modularity;
+using Volo.Abp.SettingManagement;
 using Volo.Abp.Threading;
 
 namespace Abp.SettingManagement.Mvc.UI
@@ -12,7 +13,8 @@ namespace Abp.SettingManagement.Mvc.UI
         typeof(AbpAutofacModule),
         typeof(AbpTestBaseModule),
         typeof(AbpAuthorizationModule),
-        typeof(AbpSettingManagementMvcUIDomainModule)
+        typeof(AbpSettingManagementMvcUIDomainModule),
+        typeof(AbpSettingManagementDomainModule)
         )]
     public class AbpSettingManagementMvcUITestBaseModule : AbpModule
     {

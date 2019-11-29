@@ -66,6 +66,8 @@ namespace Abp.SettingManagement.Mvc.UI.SettingManagementUI
         {
             foreach (var kv in settingValues)
             {
+                // The key of the settingValues is in camelCase, like "setting_Abp_Localization_DefaultLanguage",
+                // change it to "Abp.Localization.DefaultLanguage" form
                 string pascalCaseName = kv.Key.ToPascalCase();
                 if (!pascalCaseName.StartsWith(AbpSettingManagementMvcUIConst.FormNamePrefix))
                 {
@@ -73,6 +75,7 @@ namespace Abp.SettingManagement.Mvc.UI.SettingManagementUI
                 }
 
                 string name = pascalCaseName.RemovePreFix(AbpSettingManagementMvcUIConst.FormNamePrefix).UnderscoreToDot();
+                // TODO: support setting providers
                 await _settingManager.SetGlobalAsync(name, kv.Value);
             }
         }
