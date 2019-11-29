@@ -2,7 +2,7 @@
 
 An [ABP](http://abp.io) module used to manage ABP settings
 
-![](doc/images/demo.png)
+![](./doc/images/demo.png)
 
 # Features
 
@@ -48,7 +48,7 @@ An [ABP](http://abp.io) module used to manage ABP settings
 
 1. Launch your ABP application, grant the following permission to your user:
 
-    ![](doc/images/permissions.png)
+    ![](./doc/images/permissions.png)
   
 1. Refresh the browser then you can use "Administration > Settings" menu to manage your settings!
             
