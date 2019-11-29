@@ -46,6 +46,26 @@ An [ABP](http://abp.io) module used to manage ABP settings
         }
         ```
 
+1. Configure auto api controller
+
+    * Web project:
+  
+        ``` csharp
+        ...
+        public class YourWebModule : AbpModule
+        {
+            private void ConfigureAutoApiControllers()
+            {
+                Configure<AbpAspNetCoreMvcOptions>(options =>
+                {
+                    ...
+                    options.ConventionalControllers.Create(typeof(AbpSettingManagementMvcUIApplicationModule).Assembly);
+                });
+            }
+        }
+
+        ```
+
 1. Launch your ABP application, grant the following permission to your user:
 
     ![](./doc/images/permissions.png)
@@ -91,7 +111,8 @@ OUTLINE:
 
 * MyAbpApp.Web
     
-    1. Configure localization option: `MyAbpAppWebModule`
+    1. Configure localization option: `MyAbpAppWebModule.ConfigureLocalizationServices`
+    1. Configure auto api controller: `MyAbpAppWebModule.ConfigureAutoApiControllers`
 
 # Roadmap
 

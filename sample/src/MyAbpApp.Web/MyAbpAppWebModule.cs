@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Abp.SettingManagement.Mvc.UI;
 using Abp.SettingManagement.Mvc.UI.Localization;
 using Abp.SettingManagement.Mvc.UI.Web;
 using Localization.Resources.AbpUi;
@@ -162,6 +163,7 @@ namespace MyAbpApp.Web
             Configure<AbpAspNetCoreMvcOptions>(options =>
             {
                 options.ConventionalControllers.Create(typeof(MyAbpAppApplicationModule).Assembly);
+                options.ConventionalControllers.Create(typeof(AbpSettingManagementMvcUIApplicationModule).Assembly);
             });
         }
 
