@@ -81,4 +81,4 @@ TODO
 # Roadmap
 
 - [ ] Adding more languages
-- [ ] Support setting providers
+- [ ] Supporting setting providers
