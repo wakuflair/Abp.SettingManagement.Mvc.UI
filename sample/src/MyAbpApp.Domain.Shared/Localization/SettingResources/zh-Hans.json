@@ -1,0 +1,12 @@
+﻿{
+  "culture": "zh-Hans",
+  "texts": {
+    "MySettingGroup1": "我的设置组1",
+    "MySettingGroup2": "我的设置组2",
+    "DisplayName:MySetting1": "我的设置1",
+    "DisplayName:MySetting2": "我的设置2",
+
+    "Description:MySetting1": "设置1的描述.",
+    "Description:MySetting2": "设置2的描述.",
+  }
+}
