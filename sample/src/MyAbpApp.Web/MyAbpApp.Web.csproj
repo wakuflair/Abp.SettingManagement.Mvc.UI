@@ -31,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Abp.SettingManagement.Mvc.UI.Web" Version="0.0.6" />
+    <PackageReference Include="Abp.SettingManagement.Mvc.UI.Web" Version="0.0.7.1" />
     <PackageReference Include="Serilog.Extensions.Hosting" Version="3.0.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
     <PackageReference Include="Serilog.Sinks.Async" Version="1.4.0" />
