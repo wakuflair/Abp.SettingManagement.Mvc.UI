@@ -5,7 +5,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Abp.SettingManagement.Mvc.UI</RootNamespace>
-    <Version>0.0.6</Version>
+    <Version>0.0.7</Version>
     <Authors>wakuflair</Authors>
     <Description>An ABP UI module used to manage ABP settings</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
