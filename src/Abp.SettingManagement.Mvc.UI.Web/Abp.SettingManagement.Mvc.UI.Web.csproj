@@ -8,7 +8,7 @@
     <IsPackable>true</IsPackable>
     <OutputType>Library</OutputType>
     <RootNamespace>Abp.SettingManagement.Mvc.UI.Web</RootNamespace>
-    <Version>0.0.7</Version>
+    <Version>0.0.7.1</Version>
     <Authors>wakuflair</Authors>
     <Description>An ABP UI module used to manage ABP settings</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>

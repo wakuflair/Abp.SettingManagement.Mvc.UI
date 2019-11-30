@@ -13,10 +13,14 @@
     }
 }
 
+@if (!Model.Description.IsResourceNotFound)
+{
+<p class="form-text">@Model.Description</p>
+}
 <select id="@Model.Name" name="@Model.FormName" class="form-control">
     @foreach (var option in optionStr.Split(AbpSettingManagementMvcUIConst.OptionsSeparator))
     {
         string selected = option == Model.Value ? "selected" : "";
-        <!option value="@option" @selected>@option</!option>
+    <!option value="@option" @selected>@option</!option>
     }
 </select>
