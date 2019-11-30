@@ -1,0 +1,22 @@
+﻿@using Abp.SettingManagement.Mvc.UI
+@model Abp.SettingManagement.Mvc.UI.Web.Pages.Components.SettingHtmlInfo
+
+@{
+    string optionStr;
+    if (Model.SettingDefinition.Properties.TryGetValue(AbpSettingManagementMvcUIConst.Options, out var optionList))
+    {
+        optionStr = optionList.ToString();
+    }
+    else
+    {
+        optionStr = String.Empty;
+    }
+}
+
+<select id="@Model.Name" name="@Model.FormName" class="form-control">
+    @foreach (var option in optionStr.Split(AbpSettingManagementMvcUIConst.OptionsSeparator))
+    {
+        string selected = option == Model.Value ? "selected" : "";
+        <!option value="@option" @selected>@option</!option>
+    }
+</select>

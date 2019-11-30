@@ -11,7 +11,7 @@ using Volo.Abp.Threading;
 
 namespace Abp.SettingManagement.Mvc.UI.Web.Pages.Components
 {
-    [Widget(StyleFiles = new[] { "~/Pages/Components/Default.css" })]
+    [Widget(StyleFiles = new[] { "/Pages/Components/Default.css" })]
     public class SettingViewComponent : AbpViewComponent
     {
         private readonly IHtmlLocalizer<AbpSettingManagementMvcUIResource> _localizer;
