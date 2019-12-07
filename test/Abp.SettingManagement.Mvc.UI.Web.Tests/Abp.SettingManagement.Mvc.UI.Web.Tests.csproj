@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.3.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.3.0" />
-    <PackageReference Include="Volo.Abp.AspNetCore.TestBase" Version="1.0.2" />
+    <PackageReference Include="Volo.Abp.AspNetCore.TestBase" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>

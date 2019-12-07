@@ -1,11 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Abp.SettingManagement.Mvc.UI</RootNamespace>
-    <Version>0.0.7.1</Version>
+    <Version>0.0.7.2</Version>
     <Authors>wakuflair</Authors>
     <Description>An ABP UI module used to manage ABP settings</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -14,9 +14,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.AutoMapper" Version="1.0.2" />
-    <PackageReference Include="Volo.Abp.Ddd.Application" Version="1.0.2" />
-    <PackageReference Include="Volo.Abp.SettingManagement.Domain" Version="1.0.2" />
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="1.1.0" />
+    <PackageReference Include="Volo.Abp.Ddd.Application" Version="1.1.0" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Domain" Version="1.1.0" />
     <ProjectReference Include="..\Abp.SettingManagement.Mvc.UI.Application.Contracts\Abp.SettingManagement.Mvc.UI.Application.Contracts.csproj" />
     <ProjectReference Include="..\Abp.SettingManagement.Mvc.UI.Domain\Abp.SettingManagement.Mvc.UI.Domain.csproj" />
   </ItemGroup>
