@@ -33,6 +33,7 @@
     "DisplayName:Abp.Identity.User.IsUserNameUpdateEnabled": "Is username update enabled",
     "DisplayName:Abp.Identity.User.IsEmailUpdateEnabled": "Is email update enabled",
     "DisplayName:Abp.Account.IsSelfRegistrationEnabled": "Is self-registration enabled",
+    "DisplayName:Abp.Account.EnableLocalLogin": "Enable local login",
     "DisplayName:Abp.Mailing.DefaultFromAddress": "Default from address",
     "DisplayName:Abp.Mailing.DefaultFromDisplayName": "Default from display name",
     "DisplayName:Abp.Mailing.Smtp.Host": "Host",
@@ -58,6 +59,7 @@
     "Description:Abp.Identity.User.IsUserNameUpdateEnabled": "Whether the username can be updated by the user.",
     "Description:Abp.Identity.User.IsEmailUpdateEnabled": "Whether the email can be updated by the user.",
     "Description:Abp.Account.IsSelfRegistrationEnabled": "Whether a user can register the account by him or herself.",
+    "Description:Abp.Account.EnableLocalLogin": "Whether a user can login with a local account.",
     "Description:Abp.Mailing.DefaultFromAddress": "The default from address",
     "Description:Abp.Mailing.DefaultFromDisplayName": "The default from display name",
     // https://docs.microsoft.com/en-us/dotnet/api/system.net.mail.smtpclient?view=netcore-3.0#properties

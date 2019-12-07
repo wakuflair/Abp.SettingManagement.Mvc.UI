@@ -74,6 +74,11 @@
     "Group2": "Account",
     "Type": "checkbox"
   },
+  "Abp.Account.EnableLocalLogin": {
+    "Group1": "System",
+    "Group2": "Account",
+    "Type": "checkbox"
+  },
   "Abp.Mailing.Smtp.Host": {
     "Group1": "Mail",
     "Group2": "Smtp",

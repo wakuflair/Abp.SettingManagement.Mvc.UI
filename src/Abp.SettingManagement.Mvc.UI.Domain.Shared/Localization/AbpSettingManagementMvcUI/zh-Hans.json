@@ -33,6 +33,7 @@
     "DisplayName:Abp.Identity.User.IsUserNameUpdateEnabled": "启用用户名更新",
     "DisplayName:Abp.Identity.User.IsEmailUpdateEnabled": "启用电子邮箱更新",
     "DisplayName:Abp.Account.IsSelfRegistrationEnabled": "启用自行注册",
+    "DisplayName:Abp.Account.EnableLocalLogin": "启用本地登录",
     "DisplayName:Abp.Mailing.DefaultFromAddress": "默认发件人地址",
     "DisplayName:Abp.Mailing.DefaultFromDisplayName": "默认发件人名字",
     "DisplayName:Abp.Mailing.Smtp.Host": "主机",
@@ -58,6 +59,7 @@
     "Description:Abp.Identity.User.IsUserNameUpdateEnabled": "是否允许用户更新用户名.",
     "Description:Abp.Identity.User.IsEmailUpdateEnabled": "是否允许用户更新电子邮箱.",
     "Description:Abp.Account.IsSelfRegistrationEnabled": "是否允许用户自行注册帐户.",
+    "Description:Abp.Account.EnableLocalLogin": "是否允许用户使用本地帐户登录.",
     // https://docs.microsoft.com/zh-cn/dotnet/api/system.net.mail.smtpclient?view=netcore-3.0#properties
     "Description:Abp.Mailing.DefaultFromAddress": "默认的发件人地址.",
     "Description:Abp.Mailing.DefaultFromDisplayName": "默认的发件人名字.",
