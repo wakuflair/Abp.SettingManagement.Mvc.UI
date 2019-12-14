@@ -15,11 +15,11 @@
   <ItemGroup>
     <PackageReference Include="Abp.SettingManagement.Mvc.UI.Application" Version="0.0.7.3" />
     <PackageReference Include="Abp.SettingManagement.Mvc.UI.Web" Version="0.0.7.3" />
-    <PackageReference Include="Volo.Abp.Account.Application" Version="1.1.0" />
-    <PackageReference Include="Volo.Abp.Identity.Application" Version="1.1.0" />
-    <PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="1.1.0" />
-    <PackageReference Include="Volo.Abp.TenantManagement.Application" Version="1.1.0" />
-    <PackageReference Include="Volo.Abp.FeatureManagement.Application" Version="1.1.0" />
+    <PackageReference Include="Volo.Abp.Account.Application" Version="1.1.2" />
+    <PackageReference Include="Volo.Abp.Identity.Application" Version="1.1.2" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="1.1.2" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Application" Version="1.1.2" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Application" Version="1.1.2" />
   </ItemGroup>
 
 </Project>
