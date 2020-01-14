@@ -2,6 +2,7 @@
 using Volo.Abp.Localization;
 using Abp.SettingManagement.Mvc.UI.Localization;
 using Volo.Abp.Localization.ExceptionHandling;
+using Volo.Abp.Localization.Resources.AbpLocalization;
 using Volo.Abp.Validation;
 using Volo.Abp.Validation.Localization;
 using Volo.Abp.VirtualFileSystem;
@@ -24,7 +25,6 @@ namespace Abp.SettingManagement.Mvc.UI
             {
                 options.Resources
                     .Add<AbpSettingManagementMvcUIResource>("en")
-                    .AddBaseTypes(typeof(AbpValidationResource))
                     .AddVirtualJson("/Localization/AbpSettingManagementMvcUI");
             });
 
