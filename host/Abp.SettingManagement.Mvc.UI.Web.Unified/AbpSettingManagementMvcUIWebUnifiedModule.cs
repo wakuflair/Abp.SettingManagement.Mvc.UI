@@ -9,6 +9,7 @@ using Abp.SettingManagement.Mvc.UI.Web;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
 using Volo.Abp;
+using Volo.Abp.Account;
 using Volo.Abp.Account.Web;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
@@ -45,6 +46,7 @@ namespace Abp.SettingManagement.Mvc.UI
         typeof(AbpAuditLoggingEntityFrameworkCoreModule),
         typeof(AbpAutofacModule),
         typeof(AbpAccountWebModule),
+        typeof(AbpAccountApplicationModule),
         typeof(AbpEntityFrameworkCoreSqlServerModule),
         typeof(AbpSettingManagementEntityFrameworkCoreModule),
         typeof(AbpPermissionManagementEntityFrameworkCoreModule),
