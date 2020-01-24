@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.Ddd.Domain" Version="2.0.0" />
+    <PackageReference Include="Volo.Abp.Ddd.Domain" Version="2.0.1" />
     <ProjectReference Include="..\Abp.SettingManagement.Mvc.UI.Domain.Shared\Abp.SettingManagement.Mvc.UI.Domain.Shared.csproj" />
   </ItemGroup>
 
