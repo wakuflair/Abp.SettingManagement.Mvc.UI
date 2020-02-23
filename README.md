@@ -1,3 +1,5 @@
+For ABP >= 2.1.1, please use [EasyAbp.Abp.SettingUi](https://github.com/EasyAbp/EasyAbp.Abp.SettingUi).
+
 # Abp.SettingManagement.Mvc.UI
 
 An [ABP](http://abp.io) module used to manage ABP settings
